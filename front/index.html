@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="misFunciones.js"></script>  
+    <title>Reto3</title>
+</head>
+<body>
+
+    <h1> Categorias</h1>
+    <div id="resultado1"></div>
+    <button onclick="traerInformacionCategorias()" > Consultar Categorias</button>
+    
+    <div>
+        <input type="text" id="Cname" placeholder="Nombre" required>
+        <input type="text" id="Cdescription" placeholder="Descripcion" required>
+       
+        
+    </div>
+    <button onclick="guardarInformacionOrtesis()">Guardar Categorias</button>
+
+    <h1> Ortesis</h1>
+    <div id="resultado2"></div>
+    <button onclick="traerInformacionOrtesis()" > Consultar Categorias</button>
+    
+    <div>
+        <input type="text" id="Oname" placeholder="Nombre" required>
+        <input type="text" id="Obrand" placeholder="Marca" required>
+        <input type="number" id="Oyear" placeholder="Modelo" required>
+        <input type="text" id="Odescription" placeholder="Descripcion" required>
+    </div>
+    <button onclick="guardarInformacionOrtesis()">Guardar Categorias</button>
+
+    <h1> Cliente</h1>
+    <div id="resultado3"></div>
+    <button onclick="traerInformacionCliente()" > Consultar Categorias</button>
+    
+    <div>
+        <input type="email" id="Clemail" placeholder="Email" required>
+        <input type="password" id="Clpassword" placeholder="password" required>
+        <input type="text" id="Clname" placeholder="Nombre" required>
+        <input type="number" id="Clage" placeholder="Edad" required>
+    </div>
+    <button onclick="guardarInformacionCliente()">Guardar Categorias</button>
+
+    <h1> Mensaje</h1>
+    <div id="resultado4"></div>
+    <button onclick="traerInformacionMensaje()" > Consultar Categorias</button>
+    
+    <div>
+        <input type="text" id="messageText" placeholder="Mensaje" required>
+       
+    </div>
+    <button onclick="guardarInformacionMensaje()">Guardar Categorias</button>
+
+    <h1> Reservacion</h1>
+    <div id="resultado5"></div>
+    <button onclick="traerInformacionReservacion()" > Consultar Categorias</button>
+    
+    <div>
+        <input type="date" id="RstartDate" placeholder="Fecha de Salida" required>
+        <input type="date" id="RdevolutionDate" placeholder="Fecha de devolucion" required>
+        <input type="text" id="Rstatus" placeholder="status" required>
+    </div>
+    <button onclick="guardarInformacionReservacion()">Guardar Categorias</button>
+
+    <h1> Score</h1>
+    <div id="resultado5"></div>
+    <button onclick="traerInformacionCategorias()" > Consultar Categorias</button>
+    
+    <div>
+        <input type="date" id="RstartDate" placeholder="Fecha de Salida">
+        <input type="date" id="RdevolutionDate" placeholder="Fecha de devolucion">
+        <input type="text" id="Rstatus" placeholder="status">
+        
+    </div>
+    <button onclick="guardarInformacionCategorias()">Guardar Categorias</button>
+</body>
+</html>
+    

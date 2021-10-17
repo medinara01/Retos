@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryController {
     @Autowired
     private CategoryService servicios;
-    @GetMapping("all")
+    @GetMapping("/all")
     public List <Category> getCategory(){
         return servicios.getAll();
     }
