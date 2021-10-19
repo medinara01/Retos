@@ -10,7 +10,7 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<script src="main.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    	<script type="text/javascript" src="misFunciones.js"></script> 
+    <script type="text/javascript" src="misFunciones.js"></script> 
 </head>
 <body>
 	<div class="wrap">
@@ -29,11 +29,14 @@
 				<div id="resultado1"></div>
 				<button onclick="traerInformacionCategorias()" > Consultar Categorias</button>
 				<form>
+					<label for="id">Id:</label>
+					<input type="number" id="Cid" placeholder="Id">
 					<label for="name">Nombre:</label>
 					<input type="text" id="Cname" placeholder="Nombre" required>
 					<label for="name">Descripción:</label>
 					<input type="text" id="Cdescription" placeholder="Descripcion" required>
 					<button onclick="guardarInformacionCategorias()">Guardar Categorias</button>
+					<button onclick="actualizarInformacionCategorias()">Actualizar Categorias</button>
 				</form>
 			</article>
 			<article id="tab2">

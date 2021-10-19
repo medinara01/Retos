@@ -56,6 +56,39 @@ function guardarInformacionCategorias(){
 
 }
 
+function actualizarInformacionCategorias(){
+    let var2 = {
+        id:$("#Cid").val(),
+        name:$("#Cname").val(),
+        description:$("#Cdescription").val()
+        };
+      
+        $.ajax({
+        type:'PUT',
+        contentType: "application/json; charset=utf-8",
+        dataType: 'JSON',
+        data: JSON.stringify(var2),
+        
+        url:"http://129.151.96.250:8080/api/Category/update",
+       
+        
+        success:function(response) {
+                console.log(response);
+            console.log("Se actualizó correctamente");
+            alert("Se actualizó correctamente");
+            window.location.reload()
+    
+        },
+        
+        error: function(jqXHR, textStatus, errorThrown) {
+              window.location.reload()
+            alert("No se actualizó correctamente");
+    
+    
+        }
+        });
+
+}
 ///////////////////Ortesis//////////////////////////////////////
 function traerInformacionOrtesis(){
     $.ajax({
