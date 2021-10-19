@@ -1,6 +1,6 @@
 function traerInformacionCategorias(){
     $.ajax({
-        url:"http://localhost:8080/api/Category/all",
+        url:"http://129.151.96.250:8080/api/Category/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -35,7 +35,7 @@ function guardarInformacionCategorias(){
         dataType: 'JSON',
         data: JSON.stringify(var2),
         
-        url:"http://localhost:8080/api/Category/save",
+        url:"http://129.151.96.250:8080/api/Category/save",
        
         
         success:function(response) {
@@ -59,7 +59,7 @@ function guardarInformacionCategorias(){
 ///////////////////Ortesis//////////////////////////////////////
 function traerInformacionOrtesis(){
     $.ajax({
-        url:"http://localhost:8080/api/Ortesis/all",
+        url:"http://129.151.96.250:8080/api/Ortopedic/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -98,7 +98,7 @@ function guardarInformacionOrtesis(){
         dataType: 'JSON',
         data: JSON.stringify(var3),
         
-        url:"http://localhost:8080/api/Ortesis/save",
+        url:"http://129.151.96.250:8080/api/Ortopedic/save",
        
         
         success:function(response) {
@@ -121,7 +121,7 @@ function guardarInformacionOrtesis(){
 //////////////////////Clientes//////////////////////////////////
 function traerInformacionClientes(){
     $.ajax({
-        url:"http://localhost:8080/api/Client/all",
+        url:"http://129.151.96.250:8080/api/Client/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -148,10 +148,10 @@ function pintarRespuestaClientes(respuesta){
 
 function guardarInformacionClientes(){
     let var4 = {
-        email:$("#CLemail").val(),
-        password:$("#CLpassword").val(),
-        name:$("#CLname").val(),
-        age:$("#CLage").val(),
+        email:$("#Clemail").val(),
+        password:$("#Clpassword").val(),
+        name:$("#Clname").val(),
+        age:$("#Clage").val(),
         };
       
         $.ajax({
@@ -160,7 +160,7 @@ function guardarInformacionClientes(){
         dataType: 'JSON',
         data: JSON.stringify(var4),
         
-        url:"http://localhost:8080/api/Client/save",
+        url:"http://129.151.96.250:8080/api/Client/save",
        
         
         success:function(response) {
@@ -174,10 +174,176 @@ function guardarInformacionClientes(){
         error: function(jqXHR, textStatus, errorThrown) {
               window.location.reload()
             alert("No se guardo correctamente");
+            }
+        });
+
+}
+
+//////////////////////Mensajes//////////////////////////////////
+function traerInformacionMensajes(){
+    $.ajax({
+        url:"http://129.151.96.250:8080/api/Message/all",
+        type:"GET",
+        datatype:"JSON",
+        success:function(respuesta){
+            console.log(respuesta);
+            pintarRespuestaMensajes(respuesta);
+        }
+    });
+}
+
+function pintarRespuestaMensajes(respuesta){
+
+    let myTable="<table>";
+    for(i=0;i<respuesta.length;i++){
+        myTable+="<tr>";
+        myTable+="<td>"+respuesta[i].messageText+"</td>";
+        myTable+="</tr>";
+    }
+    myTable+="</table>";
+    $("#resultado4").html(myTable);
+}
+
+function guardarInformacionMensajes(){
+    let var5 = {
+        messageText:$("#messageText").val(),
+        };
+      
+        $.ajax({
+        type:'POST',
+        contentType: "application/json; charset=utf-8",
+        dataType: 'JSON',
+        data: JSON.stringify(var5),
+        
+        url:"http://129.151.96.250:8080/api/Message/save",
+       
+        
+        success:function(response) {
+                console.log(response);
+            console.log("Se guardo correctamente");
+            alert("Se guardo correctamente");
+            window.location.reload()
     
-    
+        },
+        
+        error: function(jqXHR, textStatus, errorThrown) {
+              window.location.reload()
+            alert("No se guardo correctamente");
         }
         });
 
 }
 
+//////////////////////Reservacion//////////////////////////////////
+function traerInformacionReservacion(){
+    $.ajax({
+        url:"http://129.151.96.250:8080/api/Reservation/all",
+        type:"GET",
+        datatype:"JSON",
+        success:function(respuesta){
+            console.log(respuesta);
+            pintarRespuestaReservacion(respuesta);
+        }
+    });
+}
+
+function pintarRespuestaReservacion(respuesta){
+
+    let myTable="<table>";
+    for(i=0;i<respuesta.length;i++){
+        myTable+="<tr>";
+        myTable+="<td>"+respuesta[i].startDate+"</td>";
+        myTable+="<td>"+respuesta[i].devolutionDate+"</td>";
+        myTable+="</tr>";
+    }
+    myTable+="</table>";
+    $("#resultado5").html(myTable);
+}
+
+function guardarInformacionReservacion(){
+    let var6 = {
+        startDate:$("#RstartDate").val(),
+        devolutionDate:$("#RdevolutionDate").val(),
+        };
+      
+        $.ajax({
+        type:'POST',
+        contentType: "application/json; charset=utf-8",
+        dataType: 'JSON',
+        data: JSON.stringify(var6),
+        
+        url:"http://129.151.96.250:8080/api/Reservation/save",
+       
+        
+        success:function(response) {
+                console.log(response);
+            console.log("Se guardo correctamente");
+            alert("Se guardo correctamente");
+            window.location.reload()
+    
+        },
+        
+        error: function(jqXHR, textStatus, errorThrown) {
+              window.location.reload()
+            alert("No se guardo correctamente");
+        }
+        });
+
+}
+
+//////////////////////Score//////////////////////////////////
+function traerInformacionScore(){
+    $.ajax({
+        url:"http://129.151.96.250:8080/api/Score/all",
+        type:"GET",
+        datatype:"JSON",
+        success:function(respuesta){
+            console.log(respuesta);
+            pintarRespuestaScore(respuesta);
+        }
+    });
+}
+
+function pintarRespuestaScore(respuesta){
+
+    let myTable="<table>";
+    for(i=0;i<respuesta.length;i++){
+        myTable+="<tr>";
+        myTable+="<td>"+respuesta[i].messageText+"</td>";
+        myTable+="<td>"+respuesta[i].stars+"</td>";
+        myTable+="</tr>";
+    }
+    myTable+="</table>";
+    $("#resultado6").html(myTable);
+}
+
+function guardarInformacionScore(){
+    let var6 = {
+        messageText:$("#SMessageText").val(),
+        stars:$("#SStars").val(),
+        };
+      
+        $.ajax({
+        type:'POST',
+        contentType: "application/json; charset=utf-8",
+        dataType: 'JSON',
+        data: JSON.stringify(var6),
+        
+        url:"http://129.151.96.250:8080/api/Score/save",
+       
+        
+        success:function(response) {
+                console.log(response);
+            console.log("Se guardo correctamente");
+            alert("Se guardo correctamente");
+            window.location.reload()
+    
+        },
+        
+        error: function(jqXHR, textStatus, errorThrown) {
+              window.location.reload()
+            alert("No se guardo correctamente");
+        }
+        });
+
+}
