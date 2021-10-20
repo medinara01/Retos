@@ -23,10 +23,34 @@ function pintarRespuesta(respuesta){
     $("#resultado1").html(myTable);
 }
 
+function guardarInformacionCategorias2(){
+    let variable ={
+        name:$("#Cname").val(),
+        description:$("#Cdescription").val(),
+    };
+    console.log(variable);
+    $.ajax({
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        dataType: 'JSON',
+        data: JSON.stringify(variable),
+        url:"http://129.151.96.250:8080/api/Category/save",
+        success:function(response) {
+            console.log(response);
+        console.log("Se guardo correctamente");
+        alert("Se guardo correctamente");
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+        //window.location.reload()
+      alert("No se guardo correctamente");
+    }
+    });
+}
+
 function guardarInformacionCategorias(){
     let var2 = {
         name:$("#Cname").val(),
-        description:$("#Cdescription").val()
+        description:$("#Cdescription").val(),
         };
       
         $.ajax({
@@ -36,18 +60,17 @@ function guardarInformacionCategorias(){
         data: JSON.stringify(var2),
         
         url:"http://129.151.96.250:8080/api/Category/save",
-       
         
         success:function(response) {
                 console.log(response);
             console.log("Se guardo correctamente");
             alert("Se guardo correctamente");
-            window.location.reload()
+            //window.location.reload()
     
         },
         
         error: function(jqXHR, textStatus, errorThrown) {
-              window.location.reload()
+              //window.location.reload()
             alert("No se guardo correctamente");
     
     
@@ -56,7 +79,7 @@ function guardarInformacionCategorias(){
 
 }
 
-function actualizarInformacionCategorias(){
+/* function actualizarInformacionCategorias(){
     let var2 = {
         id:$("#Cid").val(),
         name:$("#Cname").val(),
@@ -89,6 +112,37 @@ function actualizarInformacionCategorias(){
         });
 
 }
+
+function borrarInformacionCategorias(){
+    let var2 = {
+        id:$("#Cid").val(),
+        };
+      
+        $.ajax({
+        type:'DELETE',
+        contentType: "application/json; charset=utf-8",
+        dataType: 'JSON',
+        data: JSON.stringify(var2),
+        
+        url:"http://129.151.96.250:8080/api/Category/delete",
+       
+        
+        success:function(response) {
+                console.log(response);
+            console.log("Se eliminó el Registro");
+            alert("Se eliminó el Registro");
+            window.location.reload()
+    
+        },
+        
+        error: function(jqXHR, textStatus, errorThrown) {
+              window.location.reload()
+            alert("No se eliminó el registro correctamente");
+    
+        }
+        });
+
+} */
 ///////////////////Ortesis//////////////////////////////////////
 function traerInformacionOrtesis(){
     $.ajax({
