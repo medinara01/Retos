@@ -1,6 +1,6 @@
 function traerInformacionCategorias(){
     $.ajax({
-        url:"http://129.151.96.250:8080/api/Category/all",
+        url:"http://144.22.225.106:80/api/Category/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -35,11 +35,11 @@ function guardarInformacionCategorias(){
         dataType: 'JSON',
         data: JSON.stringify(var2),
         
-        url:"http://129.151.96.250:8080/api/Category/save",
+        url:"http://144.22.225.106:80/api/Category/save",
        
         
         success:function(response) {
-                console.log(response);
+            console.log(response);
             console.log("Se guardo correctamente");
             alert("Se guardo correctamente");
             window.location.reload()
@@ -69,7 +69,7 @@ function actualizarInformacionCategorias(){
         dataType: 'JSON',
         data: JSON.stringify(var2),
         
-        url:"http://129.151.96.250:8080/api/Category/update",
+        url:"http://144.22.225.106:80/api/Category/update",
        
         
         success:function(response) {
@@ -92,7 +92,7 @@ function actualizarInformacionCategorias(){
 ///////////////////Ortesis//////////////////////////////////////
 function traerInformacionOrtesis(){
     $.ajax({
-        url:"http://129.151.96.250:8080/api/Ortopedic/all",
+        url:"http://144.22.225.106:80/api/Ortopedic/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -131,7 +131,7 @@ function guardarInformacionOrtesis(){
         dataType: 'JSON',
         data: JSON.stringify(var3),
         
-        url:"http://129.151.96.250:8080/api/Ortopedic/save",
+        url:"http://144.22.225.106:80/api/Ortopedic/save",
        
         
         success:function(response) {
@@ -154,7 +154,7 @@ function guardarInformacionOrtesis(){
 //////////////////////Clientes//////////////////////////////////
 function traerInformacionClientes(){
     $.ajax({
-        url:"http://129.151.96.250:8080/api/Client/all",
+        url:"http://144.22.225.106:80/api/Client/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -193,7 +193,7 @@ function guardarInformacionClientes(){
         dataType: 'JSON',
         data: JSON.stringify(var4),
         
-        url:"http://129.151.96.250:8080/api/Client/save",
+        url:"http://144.22.225.106:80/api/Client/save",
        
         
         success:function(response) {
@@ -215,7 +215,7 @@ function guardarInformacionClientes(){
 //////////////////////Mensajes//////////////////////////////////
 function traerInformacionMensajes(){
     $.ajax({
-        url:"http://129.151.96.250:8080/api/Message/all",
+        url:"http://144.22.225.106:80/api/Message/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -248,7 +248,7 @@ function guardarInformacionMensajes(){
         dataType: 'JSON',
         data: JSON.stringify(var5),
         
-        url:"http://129.151.96.250:8080/api/Message/save",
+        url:"http://144.22.225.106:80/api/Message/save",
        
         
         success:function(response) {
@@ -270,7 +270,7 @@ function guardarInformacionMensajes(){
 //////////////////////Reservacion//////////////////////////////////
 function traerInformacionReservacion(){
     $.ajax({
-        url:"http://129.151.96.250:8080/api/Reservation/all",
+        url:"http://144.22.225.106:80/api/Reservation/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -305,7 +305,7 @@ function guardarInformacionReservacion(){
         dataType: 'JSON',
         data: JSON.stringify(var6),
         
-        url:"http://129.151.96.250:8080/api/Reservation/save",
+        url:"http://144.22.225.106:80/api/Reservation/save",
        
         
         success:function(response) {
@@ -327,7 +327,7 @@ function guardarInformacionReservacion(){
 //////////////////////Score//////////////////////////////////
 function traerInformacionScore(){
     $.ajax({
-        url:"http://129.151.96.250:8080/api/Score/all",
+        url:"http://144.22.225.106:80/api/Score/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -362,7 +362,7 @@ function guardarInformacionScore(){
         dataType: 'JSON',
         data: JSON.stringify(var6),
         
-        url:"http://129.151.96.250:8080/api/Score/save",
+        url:"http://144.22.225.106:80/api/Score/save",
        
         
         success:function(response) {
