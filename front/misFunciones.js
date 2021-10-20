@@ -47,7 +47,7 @@ function guardarInformacionCategorias(){
         },
         
         error: function(jqXHR, textStatus, errorThrown) {
-              window.location.reload()
+            window.location.reload()
             alert("No se guardo correctamente");
     
     
@@ -73,7 +73,7 @@ function actualizarInformacionCategorias(){
        
         
         success:function(response) {
-                console.log(response);
+            console.log(response);
             console.log("Se actualizó correctamente");
             alert("Se actualizó correctamente");
             window.location.reload()
@@ -81,7 +81,7 @@ function actualizarInformacionCategorias(){
         },
         
         error: function(jqXHR, textStatus, errorThrown) {
-              window.location.reload()
+            window.location.reload()
             alert("No se actualizó correctamente");
     
     
@@ -135,7 +135,7 @@ function guardarInformacionOrtesis(){
        
         
         success:function(response) {
-                console.log(response);
+            console.log(response);
             console.log("Se guardo correctamente");
             alert("Se guardo correctamente");
             window.location.reload()
@@ -143,7 +143,7 @@ function guardarInformacionOrtesis(){
         },
         
         error: function(jqXHR, textStatus, errorThrown) {
-              window.location.reload()
+            window.location.reload()
             alert("No se guardo correctamente");
     
     
@@ -197,7 +197,7 @@ function guardarInformacionClientes(){
        
         
         success:function(response) {
-                console.log(response);
+            console.log(response);
             console.log("Se guardo correctamente");
             alert("Se guardo correctamente");
             window.location.reload()
@@ -205,7 +205,7 @@ function guardarInformacionClientes(){
         },
         
         error: function(jqXHR, textStatus, errorThrown) {
-              window.location.reload()
+            window.location.reload()
             alert("No se guardo correctamente");
             }
         });
@@ -252,7 +252,7 @@ function guardarInformacionMensajes(){
        
         
         success:function(response) {
-                console.log(response);
+            console.log(response);
             console.log("Se guardo correctamente");
             alert("Se guardo correctamente");
             window.location.reload()
@@ -260,7 +260,7 @@ function guardarInformacionMensajes(){
         },
         
         error: function(jqXHR, textStatus, errorThrown) {
-              window.location.reload()
+            window.location.reload()
             alert("No se guardo correctamente");
         }
         });
@@ -309,7 +309,7 @@ function guardarInformacionReservacion(){
        
         
         success:function(response) {
-                console.log(response);
+            console.log(response);
             console.log("Se guardo correctamente");
             alert("Se guardo correctamente");
             window.location.reload()
@@ -317,7 +317,7 @@ function guardarInformacionReservacion(){
         },
         
         error: function(jqXHR, textStatus, errorThrown) {
-              window.location.reload()
+            window.location.reload()
             alert("No se guardo correctamente");
         }
         });
@@ -366,7 +366,7 @@ function guardarInformacionScore(){
        
         
         success:function(response) {
-                console.log(response);
+            console.log(response);
             console.log("Se guardo correctamente");
             alert("Se guardo correctamente");
             window.location.reload()
@@ -374,7 +374,7 @@ function guardarInformacionScore(){
         },
         
         error: function(jqXHR, textStatus, errorThrown) {
-              window.location.reload()
+            window.location.reload()
             alert("No se guardo correctamente");
         }
         });
