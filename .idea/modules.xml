@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Retos.iml" filepath="$PROJECT_DIR$/.idea/Retos.iml" />
       <module fileurl="file://$PROJECT_DIR$/ciclo3/ciclo3/ciclo3.iml" filepath="$PROJECT_DIR$/ciclo3/ciclo3/ciclo3.iml" />
     </modules>
   </component>
