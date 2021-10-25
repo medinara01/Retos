@@ -1,4 +1,5 @@
-function traerInformacionCategorias(){
+function autoInicioCategory(){
+    console.log("se esta ejecutando category")
     $.ajax({
         url:"http://129.151.96.250:8080/api/Category/all",
         type:"GET",
@@ -6,8 +7,13 @@ function traerInformacionCategorias(){
         success:function(respuesta){
             console.log(respuesta);
             pintarRespuesta(respuesta);
+            let $select = $("#select-category");
+            $.each(respuesta, function (id, name) {
+                $select.append('<option value='+name.id+'>'+name.name+'</option>');
+                console.log("select "+name.id);
+            });
         }
-    });
+    })
 }
 
 function pintarRespuesta(respuesta){
@@ -17,122 +23,88 @@ function pintarRespuesta(respuesta){
         myTable+="<tr>";
         myTable+="<td>"+respuesta[i].name+"</td>";
         myTable+="<td>"+respuesta[i].description+"</td>";
+        myTable+="<td> <button onclick='actualizarInformacionCategorias("+respuesta[i].id+")'>Actualizar</button>";
+        myTable+="<td> <button onclick='borrarInformacionCategorias("+respuesta[i].id+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";
     $("#resultado1").html(myTable);
 }
 
-function guardarInformacionCategorias2(){
+function guardarInformacionCategorias(){
     let variable ={
         name:$("#Cname").val(),
         description:$("#Cdescription").val(),
     };
-    console.log(variable);
     $.ajax({
+        url:"http://129.151.96.250:8080/api/Category/save",
         type: 'POST',
         contentType: "application/json; charset=utf-8",
         dataType: 'JSON',
         data: JSON.stringify(variable),
-        url:"http://129.151.96.250:8080/api/Category/save",
+        
         success:function(response) {
-            console.log(response);
-        console.log("Se guardo correctamente");
-        alert("Se guardo correctamente");
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-        //window.location.reload()
-      alert("No se guardo correctamente");
-    }
+            console.log("Se guardo correctamente");
+            alert("Se guardo correctamente");
+            window.location.reload();
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("No se guardo correctamente");
+            window.location.reload();
+        }
     });
 }
 
-function guardarInformacionCategorias(){
-    let var2 = {
-        name:$("#Cname").val(),
-        description:$("#Cdescription").val(),
-        };
-      
-        $.ajax({
-        type:'POST',
-        contentType: "application/json; charset=utf-8",
-        dataType: 'JSON',
-        data: JSON.stringify(var2),
-        
-        url:"http://129.151.96.250:8080/api/Category/save",
-        
-        success:function(response) {
-                console.log(response);
-            console.log("Se guardo correctamente");
-            alert("Se guardo correctamente");
-            //window.location.reload()
-    
-        },
-        
-        error: function(jqXHR, textStatus, errorThrown) {
-              //window.location.reload()
-            alert("No se guardo correctamente");
-    
-    
-        }
-        });
 
-}
-
-/* function actualizarInformacionCategorias(){
+function actualizarInformacionCategorias(idElement){
     let var2 = {
-        id:$("#Cid").val(),
+        id:idElement,
         name:$("#Cname").val(),
         description:$("#Cdescription").val()
         };
-      
+        let dataToSend=JSON.stringify(var2);
         $.ajax({
-        type:'PUT',
-        contentType: "application/json; charset=utf-8",
-        dataType: 'JSON',
-        data: JSON.stringify(var2),
-        
         url:"http://129.151.96.250:8080/api/Category/update",
+        type:"PUT",
+        data:dataToSend,
+        contentType:"application/JSON",
+        datatype:"JSON",
+        
        
         
-        success:function(response) {
-                console.log(response);
-            console.log("Se actualizó correctamente");
-            alert("Se actualizó correctamente");
-            window.location.reload()
-    
+        success:function(response){
+            $("#resultado").empty();
+            $("#id").val("");
+            $("#Cname").val("");
+            $("#Cdescription").val("");
+            autoInicioCategory();
+            alert("Se ha actualizado correctamente")
         },
         
         error: function(jqXHR, textStatus, errorThrown) {
               window.location.reload()
             alert("No se actualizó correctamente");
-    
-    
         }
         });
 
 }
 
-function borrarInformacionCategorias(){
+function borrarInformacionCategorias(idElement){
     let var2 = {
-        id:$("#Cid").val(),
+        id:idElement
         };
-      
+        let dataToSend=JSON.stringify(var2);
         $.ajax({
+        url:"http://129.151.96.250:8080/api/Category/"+idElement,
         type:'DELETE',
+        data:dataToSend,
         contentType: "application/json; charset=utf-8",
         dataType: 'JSON',
-        data: JSON.stringify(var2),
-        
-        url:"http://129.151.96.250:8080/api/Category/delete",
-       
-        
+                
         success:function(response) {
-                console.log(response);
-            console.log("Se eliminó el Registro");
-            alert("Se eliminó el Registro");
-            window.location.reload()
-    
+            $("#resultado").empty();
+            autoInicioCategory();
+            alert("Se ha eliminado correctamente")
         },
         
         error: function(jqXHR, textStatus, errorThrown) {
@@ -142,22 +114,28 @@ function borrarInformacionCategorias(){
         }
         });
 
-} */
+} 
+ 
 ///////////////////Ortesis//////////////////////////////////////
-function traerInformacionOrtesis(){
+function autoInicioOrtopedic(){
+    console.log("se esta ejecutando ortopedic")
     $.ajax({
         url:"http://129.151.96.250:8080/api/Ortopedic/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
             console.log(respuesta);
-            pintarRespuestaOrtesis(respuesta);
+            pintarRespuestaOrtopedic(respuesta);
+            let $select = $("#select-ortopedic");
+            $.each(respuesta, function (id, name) {
+                $select.append('<option value='+name.id+'>'+name.name+'</option>');
+                console.log("select "+name.id);
+            }); 
         }
-    });
+    })
 }
 
-function pintarRespuestaOrtesis(respuesta){
-
+function pintarRespuestaOrtopedic(respuesta){
     let myTable="<table>";
     for(i=0;i<respuesta.length;i++){
         myTable+="<tr>";
@@ -165,18 +143,22 @@ function pintarRespuestaOrtesis(respuesta){
         myTable+="<td>"+respuesta[i].brand+"</td>";
         myTable+="<td>"+respuesta[i].year+"</td>";
         myTable+="<td>"+respuesta[i].description+"</td>";
+        myTable+="<td>"+respuesta[i].category.name+"</td>";
+        myTable+="<td> <button onclick='actualizarInfoOrtopedic("+respuesta[i].id+")'>Actualizar</button>";
+        myTable+="<td> <button onclick='borrarOrtopedic("+respuesta[i].id+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";
     $("#resultado2").html(myTable);
 }
 
-function guardarInformacionOrtesis(){
+function guardarInformacionOrtopedic(){
     let var3 = {
         name:$("#Oname").val(),
         brand:$("#Obrand").val(),
         year:$("#Oyear").val(),
         description:$("#Odescription").val(),
+        category: {id:+$("#select-category").val()}
         };
       
         $.ajax({
@@ -189,37 +171,89 @@ function guardarInformacionOrtesis(){
        
         
         success:function(response) {
-                console.log(response);
             console.log("Se guardo correctamente");
             alert("Se guardo correctamente");
-            window.location.reload()
+            window.location.reload();
     
         },
         
         error: function(jqXHR, textStatus, errorThrown) {
-              window.location.reload()
             alert("No se guardo correctamente");
-    
-    
+            window.location.reload()
         }
-        });
+    });
 
 }
+
+function actualizarInfoOrtopedic(idElemento){
+    let myData={
+        id:idElemento,
+        name:$("#Oname").val(),
+        brand:$("#Obrand").val(),
+        year:$("#Oyear").val(),
+        description:$("#Odescription").val(),
+        category: {id:+$("#select-category").val()}
+    };
+    console.log(myData);
+    let dataToSend=JSON.stringify(myData);
+    $.ajax({
+        url:"http://129.151.96.250:8080/api/Ortopedic/update",
+        type:"PUT",
+        data:dataToSend,
+        contentType:"application/JSON",
+        datatype:"JSON",
+        success:function(respuesta){
+            $("#resultado").empty();
+            $("#id").val("");
+            $("#Oname").val("");
+            $("#Obrand").val("");
+            $("#Oyear").val("");
+            $("#Odescription").val("");
+            $("#select-category").val("");
+            autoInicioOrtopedic();
+            alert("Se ha actualizado correctamente")
+        }
+    });
+}
+
+function borrarOrtopedic(idElemento){
+    let myData={
+        id:idElemento
+    };
+    let dataToSend=JSON.stringify(myData);
+    $.ajax({
+        url:"http://129.151.96.250:8080/api/Ortopedic/"+idElemento,
+        type:"DELETE",
+        data:dataToSend,
+        contentType:"application/JSON",
+        datatype:"JSON",
+        success:function(respuesta){
+            $("#resultado").empty();
+            autoInicioOrtopedic();
+            alert("Se ha eliminado correctamente")
+        }
+    });
+}
 //////////////////////Clientes//////////////////////////////////
-function traerInformacionClientes(){
+function autoInicioClient(){
+    console.log("se esta ejecutando client")
     $.ajax({
         url:"http://129.151.96.250:8080/api/Client/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
             console.log(respuesta);
-            pintarRespuestaClientes(respuesta);
+            pintarRespuestaClient(respuesta);
+            let $select = $("#select-client");
+            $.each(respuesta, function (id, name) {
+                $select.append('<option value='+name.idClient+'>'+name.name+'</option>');
+                console.log("select "+name.idClient);
+            }); 
         }
-    });
+    })
 }
 
-function pintarRespuestaClientes(respuesta){
-
+function pintarRespuestaClient(respuesta){
     let myTable="<table>";
     for(i=0;i<respuesta.length;i++){
         myTable+="<tr>";
@@ -227,44 +261,200 @@ function pintarRespuestaClientes(respuesta){
         myTable+="<td>"+respuesta[i].password+"</td>";
         myTable+="<td>"+respuesta[i].name+"</td>";
         myTable+="<td>"+respuesta[i].age+"</td>";
+        myTable+="<td> <button onclick='actualizarInfoClient("+respuesta[i].idClient+")'>Actualizar</button>";
+        myTable+="<td> <button onclick='borrarClient("+respuesta[i].idClient+")'>Borrar</button>";
         myTable+="</tr>";
     }
     myTable+="</table>";
     $("#resultado3").html(myTable);
 }
 
-function guardarInformacionClientes(){
-    let var4 = {
+function guardarInfoClient(){
+    let data = {
         email:$("#Clemail").val(),
         password:$("#Clpassword").val(),
         name:$("#Clname").val(),
         age:$("#Clage").val(),
-        };
-      
-        $.ajax({
+    };
+    console.log(data);
+    $.ajax({
+        url:"http://129.151.96.250:8080/api/Client/save",
         type:'POST',
         contentType: "application/json; charset=utf-8",
         dataType: 'JSON',
-        data: JSON.stringify(var4),
-        
-        url:"http://129.151.96.250:8080/api/Client/save",
-       
-        
+        data: JSON.stringify(data),
         success:function(response) {
-                console.log(response);
+            console.log(response);
             console.log("Se guardo correctamente");
             alert("Se guardo correctamente");
             window.location.reload()
-    
         },
-        
         error: function(jqXHR, textStatus, errorThrown) {
-              window.location.reload()
+            window.location.reload()
             alert("No se guardo correctamente");
-            }
-        });
-
+        }
+    });
 }
+
+function actualizarInfoClient(idElemento){
+    let myData={
+        idClient:idElemento,
+        email:$("#Clemail").val(),
+        password:$("#Clpassword").val(),
+        name:$("#Clname").val(),
+        age:$("#Clage").val(),
+    };
+    console.log(myData);
+    let dataToSend=JSON.stringify(myData);
+    $.ajax({
+        url:"http://129.151.96.250:8080/api/Client/update",
+        type:"PUT",
+        data:dataToSend,
+        contentType:"application/JSON",
+        datatype:"JSON",
+        success:function(respuesta){
+            $("#resultado").empty();
+            $("#idClient").val("");
+            $("#Clemail").val("");
+            $("#Clpassword").val("");
+            $("#Clname").val("");
+            $("#Clage").val("");
+            autoInicioClient();
+            alert("Se ha actualizado correctamente")
+        }
+    });
+}
+
+function borrarClient(idElemento){
+    let myData={
+        idClient:idElemento
+    };
+    let dataToSend=JSON.stringify(myData);
+    $.ajax({
+        url:"http://129.151.96.250:8080/api/Client/"+idElemento,
+        type:"DELETE",
+        data:dataToSend,
+        contentType:"application/JSON",
+        datatype:"JSON",
+        success:function(respuesta){
+            $("#resultado").empty();
+            autoInicioClient();
+            alert("Se ha eliminado correctamente")
+        }
+    });
+}
+
+
+//------------------------------------ Funciones Message ------------------------------------//
+
+
+function autoInicioMessage(){
+    console.log("se esta ejecutando message")
+    $.ajax({
+        url:"http://129.151.96.250:8080/api/Message/all",
+        type:"GET",
+        datatype:"JSON",
+        success:function(respuesta){
+            console.log(respuesta);
+            pintarRespuestaMessage(respuesta);
+            let $select = $("#select-message");
+            $.each(respuesta, function (id, name) {
+                $select.append('<option value='+name.idMessage+'>'+name.name+'</option>');
+                console.log("select "+name.idMessage);
+            }); 
+        }
+    })
+}
+
+function pintarRespuestaMessage(respuesta){
+    let myTable="<table>";
+    for(i=0;i<respuesta.length;i++){
+        myTable+="<tr>";
+        myTable+="<td>"+respuesta[i].messageText+"</td>";
+        myTable+="<td>"+respuesta[i].client.name+"</td>";
+        myTable+="<td>"+respuesta[i].ortopedic.name+"</td>";
+        myTable+="<td> <button onclick='actualizarInfoMessage("+respuesta[i].idMessage+")'>Actualizar</button>";
+        myTable+="<td> <button onclick='borrarMessage("+respuesta[i].idMessage+")'>Borrar</button>";
+        myTable+="</tr>";
+    }
+    myTable+="</table>";
+    $("#resultado4").html(myTable);
+}
+
+function guardarInfoMessage(){
+    let data = {
+        messageText:$("#MmessageText").val(),
+        client:{idClient:+$("#select-client").val()},
+        ortopedic:{id:+$("#select-ortopedic").val()}
+    };
+    console.log(data);
+    $.ajax({
+        url:"http://129.151.96.250:8080/api/Message/save",
+        type:'POST',
+        contentType:"aplication/JSON; charset=utf-8",
+        dataType:'JSON',
+        data: JSON.stringify(data),
+        success: function(response){
+            console.log(response);
+            console.log("Se guardo correctamente");
+            alert("Se guardo correctamente");
+            //window.location.reload();
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            //window.location.reload()
+            alert("No se guardo correctamente");
+        }
+    });
+}
+
+function actualizarInfoMessage(idElemento){
+    let myData={
+        idMessage:idElemento,
+        messageText:$("#MSmessageText").val(),
+        client: {idClient:+$("#select-client").val()},
+        ortopedic: {id:+$("#select-ortopedic").val()}
+    };
+    console.log(myData);
+    let dataToSend=JSON.stringify(myData);
+    $.ajax({
+        url:"http://129.151.96.250:8080/api/Message/update",
+        type:"PUT",
+        data:dataToSend,
+        contentType:"application/JSON",
+        datatype:"JSON",
+        success:function(respuesta){
+            $("#resultado").empty();
+            $("#idMessage").val("");
+            $("#MSmessageText").val("");
+            $("#select-client").val("");
+            $("#select-ortopedic").val("");
+            autoInicioMessage();
+            alert("Se ha actualizado correctamente")
+        }
+    });
+}
+
+function borrarMessage(idElemento){
+    let myData={
+        idMessage:idElemento
+    };
+    let dataToSend=JSON.stringify(myData);
+    $.ajax({
+        url:"http://129.151.96.250:8080/api/Message/"+idElemento,
+        type:"DELETE",
+        data:dataToSend,
+        contentType:"application/JSON",
+        datatype:"JSON",
+        success:function(respuesta){
+            $("#resultado").empty();
+            autoInicioMessage();
+            alert("Se ha eliminado correctamente")
+        }
+    });
+}
+
+
+
 
 //////////////////////Mensajes//////////////////////////////////
 function traerInformacionMensajes(){
@@ -433,4 +623,4 @@ function guardarInformacionScore(){
         }
         });
 
-}
+} 
