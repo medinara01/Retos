@@ -127,8 +127,10 @@ function autoInicioOrtopedic(){
             console.log(respuesta);
             pintarRespuestaOrtopedic(respuesta);
             let $select = $("#select-ortopedic");
+            let $select1 = $("#select-ortopedic1");
             $.each(respuesta, function (id, name) {
                 $select.append('<option value='+name.id+'>'+name.name+'</option>');
+                $select1.append('<option value='+name.id+'>'+name.name+'</option>');
                 console.log("select "+name.id);
             }); 
         }
@@ -245,8 +247,10 @@ function autoInicioClient(){
             console.log(respuesta);
             pintarRespuestaClient(respuesta);
             let $select = $("#select-client");
+            let $select1 = $("#select-client1");
             $.each(respuesta, function (id, name) {
                 $select.append('<option value='+name.idClient+'>'+name.name+'</option>');
+                $select1.append('<option value='+name.idClient+'>'+name.name+'</option>');
                 console.log("select "+name.idClient);
             }); 
         }
@@ -465,9 +469,9 @@ function autoInicioReservacion(){
         success:function(respuesta){
             console.log(respuesta);
             pintarRespuestaReservacion(respuesta);
-            let $select = $("#select-Reservacion");
+            let $select = $("#select-reservacion");
             $.each(respuesta, function (id, name) {
-                $select.append('<option value='+name.idReservation+'>'+name.name+'</option>');
+                $select.append('<option value='+name.idReservation+'>'+name.startDate+'</option>');
                 console.log("select "+name.idReservation);
             }); 
         }
@@ -480,6 +484,7 @@ function pintarRespuestaReservacion(respuesta){
         myTable+="<tr>";
         myTable+="<td>"+respuesta[i].startDate+"</td>";
         myTable+="<td>"+respuesta[i].devolutionDate+"</td>";
+        myTable+="<td>"+respuesta[i].status+"</td>";
         myTable+="<td>"+respuesta[i].client.name+"</td>";
         myTable+="<td>"+respuesta[i].ortopedic.name+"</td>";
         myTable+="<td> <button onclick='actualizarInfoReservacion("+respuesta[i].idReservation+")'>Actualizar</button>";
@@ -494,19 +499,19 @@ function guardarInfoReservacion(){
     let data = {
         startDate:$("#RstartDate").val(),
         devolutionDate:$("#RdevolutionDate").val(),
-        client:{idClient:+$("#select-client").val()},
-        ortopedic:{id:+$("#select-ortopedic").val()}
+        client:{idClient:+$("#select-client1").val()},
+        ortopedic:{id:+$("#select-ortopedic1").val()}
     };
     console.log(data);
+    let dataToSend=JSON.stringify(data);
     $.ajax({
         url:"http://129.151.96.250:8080/api/Reservation/save",
         type:'POST',
-        contentType:"aplication/JSON; charset=utf-8",
-        dataType:'JSON',
-        data: JSON.stringify(data),
+        data:dataToSend,
+        contentType:"application/JSON",
+        datatype:"JSON",
         success: function(response){
             console.log(response);
-            console.log("Se guardo correctamente");
             alert("Se guardo correctamente");
             window.location.reload();
         },
@@ -519,11 +524,11 @@ function guardarInfoReservacion(){
 
 function actualizarInfoReservacion(idElemento){
     let myData={
-        idReservacion:idElemento,
+        idReservation:idElemento,
         startDate:$("#RstartDate").val(),
         devolutionDate:$("#RdevolutionDate").val(),
-        client: {idClient:+$("#select-client").val()},
-        ortopedic: {id:+$("#select-ortopedic").val()}
+        client: {idClient:+$("#select-client1").val()},
+        ortopedic: {id:+$("#select-ortopedic1").val()}
     };
     console.log(myData);
     let dataToSend=JSON.stringify(myData);
@@ -535,11 +540,11 @@ function actualizarInfoReservacion(idElemento){
         datatype:"JSON",
         success:function(respuesta){
             $("#resultado").empty();
-            $("#idReservacion").val("");
+            $("#idReservation").val("");
             $("#RstartDate").val("");
             $("#RdevolutionDate").val("");
-            $("#select-client").val("");
-            $("#select-ortopedic").val("");
+            $("#select-client1").val("");
+            $("#select-ortopedic1").val("");
             autoInicioReservacion();
             alert("Se ha actualizado correctamente")
         }
