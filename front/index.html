@@ -26,24 +26,22 @@
 		<div class="secciones">
 			<article id="tab1">
 				<h1> Categorias</h1>
-				<div id="resultado1"></div>
-				<button onclick="traerInformacionCategorias()" > Consultar Categorias</button>
-				<form>
-					<!-- <label for="id">Id:</label>
-					<input type="number" id="Cid" placeholder="Id"> -->
+				<div>
 					<label for="name">Nombre:</label>
 					<input type="text" id="Cname" placeholder="Nombre" required>
 					<label for="name">Descripción:</label>
 					<input type="text" id="Cdescription" placeholder="Descripcion" required>
 					<button onclick="guardarInformacionCategorias()">Guardar Categorias</button>
-					<!-- <button onclick="actualizarInformacionCategorias()">Actualizar Categorias</button> -->
-				</form>
+				</div>
+				<div id="resultado1"></div>
+					<script type="text/javascript">
+						window.onload = autoInicioCategory();
+					</script>
+    			<div>
 			</article>
 			<article id="tab2">
 				<h1> Ortopedic</h1>
-				<div id="resultado2"></div>
-				<button onclick="traerInformacionOrtesis()" > Consultar Ortopedic</button>
-				<form>
+				<div>
 					<label for="name">Nombre:</label>
 					<input type="text" id="Oname" placeholder="Nombre" required>
 					<label for="name">Marca:</label>
@@ -52,16 +50,20 @@
 					<input type="number" id="Oyear" placeholder="Modelo" required>
 					<label for="name">Descripcion:</label>
 					<input type="text" id="Odescription" placeholder="Descripcion" required>
-					<button onclick="guardarInformacionOrtesis()">Guardar Ortopedic</button>
-				</form>
+					<label>Selecciona la Categoría: </label>
+					<select id="select-category"></select>
+					<button onclick="guardarInformacionOrtopedic()">Guardar Ortopedic</button>
+				</div>
+				<div id="resultado2"></div>
+					<script type="text/javascript">
+						window.onload = autoInicioOrtopedic();
+					</script>
+    			<div>
 				
 			</article>
 			<article id="tab3">
 				<h1> Cliente</h1>
-				<div id="resultado3"></div>
-				<button onclick="traerInformacionClientes()" > Consultar Cliente</button>
-				
-				<form>
+				<div>
 					<label for="email">Correo Electrónico:</label>
 					<input type="email" id="Clemail" placeholder="Email" required>
 					<label for="password">Contraseña:</label>
@@ -70,47 +72,62 @@
 					<input type="text" id="Clname" placeholder="Nombre" required>
 					<label for="age">Edad:</label>
 					<input type="number" id="Clage" placeholder="Edad" required>
-					<button onclick="guardarInformacionClientes()">Guardar Cliente</button>
-				</form>
-				
+					<button onclick="guardarInfoClient()">Guardar Cliente</button>
+				</div>
+				<div id="resultado3"></div>
+					<script type="text/javascript">
+						window.onload = autoInicioClient();
+					</script>
+    			<div>
 			</article>
 			<article id="tab4">
 				<h1> Mensaje</h1>
-				<div id="resultado4"></div>
-				<button onclick="traerInformacionMensajes()" > Consultar Mensaje</button>
-				
-				<form>
+				<div>
 					<label for="message">Mensaje:</label>
 					<input type="text" id="messageText" placeholder="Mensaje" required>
+					<label>Selecciona el cliente: </label>
+					<select id="select-client"></select>
+					<label>Selecciona el ortopedico: </label>
+					<select id="select-ortopedic"></select>
+					<button onclick="guardarInfoMessage()">Guardar Mensaje</button>
+				</div>
+				<div id="resultado4"></div>
+					<script type="text/javascript">
+						window.onload = autoInicioMessage();
+					</script>
+    			<div>
 				
-				</form>
-				<button onclick="guardarInformacionMensajes()">Guardar Mensaje</button>
 			</article>
 			<article id="tab5">
 				<h1> Reservacion</h1>
-				<div id="resultado5"></div>
-				<button onclick="traerInformacionReservacion()" > Consultar Reservacion</button>
-				
-				<form>
+				<div>
 					<label for="startdate">Fecha de Salida:</label>
 					<input type="date" id="RstartDate" placeholder="Fecha de Salida" required>
 					<label for="devolutionDate">Fecha de devolución:</label>
 					<input type="date" id="RdevolutionDate" placeholder="Fecha de devolucion" required>
-
-				</form>
-				<button onclick="guardarInformacionReservacion()">Guardar Reservacion</button>
+					<label>Selecciona el cliente: </label>
+					<select id="select-client1"></select>
+					<label>Selecciona el ortopedico: </label>
+					<select id="select-ortopedic1"></select>
+					<button onclick="guardarInfoReservacion()">Guardar Reservacion</button>
+				</div>
+				<div id="resultado5"></div>
+					<script type="text/javascript">
+						window.onload = autoInicioReservacion();
+					</script>
+    			<div>
 			</article>
 			<article id="tab6">
 				<h1> Score</h1>
 				<div id="resultado6"></div>
 				<button onclick="traerInformacionScore()" > Consultar Score</button>
 				
-				<form>
+				<div>
 					<label for="message">Mensaje:</label>
 					<input type="text" id="SMessageText" placeholder="Mensaje">
 					<label for="Stars">Calificación:</label>
 					<input type="number" id="SStars" placeholder="Estrellas">
-				</form>
+				</div>
 				<button onclick="guardarInformacionScore()">Guardar Score</button>
 			</article>
 		</div>
