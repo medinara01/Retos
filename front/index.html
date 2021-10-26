@@ -31,7 +31,7 @@
 					<input type="text" id="Cname" placeholder="Nombre" required>
 					<label for="name">Descripción:</label>
 					<input type="text" id="Cdescription" placeholder="Descripcion" required>
-					<button onclick="guardarInformacionCategorias()">Guardar Categorias</button>
+					<button onclick="guardarInfoCategory()">Guardar Categorias</button>
 				</div>
 				<div id="resultado1"></div>
 					<script type="text/javascript">
@@ -39,6 +39,7 @@
 					</script>
     			<div>
 			</article>
+
 			<article id="tab2">
 				<h1> Ortopedic</h1>
 				<div>
@@ -52,15 +53,15 @@
 					<input type="text" id="Odescription" placeholder="Descripcion" required>
 					<label>Selecciona la Categoría: </label>
 					<select id="select-category"></select>
-					<button onclick="guardarInformacionOrtopedic()">Guardar Ortopedic</button>
+					<button onclick="guardarInfoOrtopedic()">Guardar Ortopedic</button>
 				</div>
 				<div id="resultado2"></div>
 					<script type="text/javascript">
 						window.onload = autoInicioOrtopedic();
 					</script>
     			<div>
-				
 			</article>
+
 			<article id="tab3">
 				<h1> Cliente</h1>
 				<div>
@@ -80,6 +81,7 @@
 					</script>
     			<div>
 			</article>
+
 			<article id="tab4">
 				<h1> Mensaje</h1>
 				<div>
@@ -96,8 +98,8 @@
 						window.onload = autoInicioMessage();
 					</script>
     			<div>
-				
 			</article>
+
 			<article id="tab5">
 				<h1> Reservacion</h1>
 				<div>
@@ -109,19 +111,19 @@
 					<select id="select-client1"></select>
 					<label>Selecciona el ortopedico: </label>
 					<select id="select-ortopedic1"></select>
-					<button onclick="guardarInfoReservacion()">Guardar Reservacion</button>
+					<button onclick="guardarInfoReservation()">Guardar Reservacion</button>
 				</div>
 				<div id="resultado5"></div>
 					<script type="text/javascript">
-						window.onload = autoInicioReservacion();
+						window.onload = autoInicioReservation();
 					</script>
     			<div>
 			</article>
+			
 			<article id="tab6">
 				<h1> Score</h1>
 				<div id="resultado6"></div>
 				<button onclick="traerInformacionScore()" > Consultar Score</button>
-				
 				<div>
 					<label for="message">Mensaje:</label>
 					<input type="text" id="SMessageText" placeholder="Mensaje">
