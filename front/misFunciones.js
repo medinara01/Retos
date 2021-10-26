@@ -23,8 +23,8 @@ function pintarRespuesta(respuesta){
         myTable+="<tr>";
         myTable+="<td>"+respuesta[i].name+"</td>";
         myTable+="<td>"+respuesta[i].description+"</td>";
-        myTable+="<td> <button onclick='actualizarInformacionCategorias("+respuesta[i].id+")'>Actualizar</button>";
-        myTable+="<td> <button onclick='borrarInformacionCategorias("+respuesta[i].id+")'>Borrar</button>";
+        myTable+="<td> <button onclick='actualizarInformacionCategorias("+respuesta[i].id+")'><i class='fas fa-sync'></i></button></td>";
+        myTable+="<td> <button onclick='borrarInformacionCategorias("+respuesta[i].id+")'><i class='fas fa-times-circle'></i></button></td>";
         myTable+="</tr>";
     }
     myTable+="</table>";
@@ -146,8 +146,8 @@ function pintarRespuestaOrtopedic(respuesta){
         myTable+="<td>"+respuesta[i].year+"</td>";
         myTable+="<td>"+respuesta[i].description+"</td>";
         myTable+="<td>"+respuesta[i].category.name+"</td>";
-        myTable+="<td> <button onclick='actualizarInfoOrtopedic("+respuesta[i].id+")'>Actualizar</button>";
-        myTable+="<td> <button onclick='borrarOrtopedic("+respuesta[i].id+")'>Borrar</button>";
+        myTable+="<td> <button onclick='actualizarInfoOrtopedic("+respuesta[i].id+")'><i class='fas fa-sync'></i></button></td>";
+        myTable+="<td> <button onclick='borrarOrtopedic("+respuesta[i].id+")'><i class='fas fa-times-circle'></i></button></td>";
         myTable+="</tr>";
     }
     myTable+="</table>";
@@ -265,8 +265,8 @@ function pintarRespuestaClient(respuesta){
         myTable+="<td>"+respuesta[i].password+"</td>";
         myTable+="<td>"+respuesta[i].name+"</td>";
         myTable+="<td>"+respuesta[i].age+"</td>";
-        myTable+="<td> <button onclick='actualizarInfoClient("+respuesta[i].idClient+")'>Actualizar</button>";
-        myTable+="<td> <button onclick='borrarClient("+respuesta[i].idClient+")'>Borrar</button>";
+        myTable+="<td> <button onclick='actualizarInfoClient("+respuesta[i].idClient+")'><i class='fas fa-sync'></i></button></td>";
+        myTable+="<td> <button onclick='borrarClient("+respuesta[i].idClient+")'><i class='fas fa-times-circle'></i></button></td>";
         myTable+="</tr>";
     }
     myTable+="</table>";
@@ -377,8 +377,8 @@ function pintarRespuestaMessage(respuesta){
         myTable+="<td>"+respuesta[i].messageText+"</td>";
         myTable+="<td>"+respuesta[i].client.name+"</td>";
         myTable+="<td>"+respuesta[i].ortopedic.name+"</td>";
-        myTable+="<td> <button onclick='actualizarInfoMessage("+respuesta[i].idMessage+")'>Actualizar</button>";
-        myTable+="<td> <button onclick='borrarMessage("+respuesta[i].idMessage+")'>Borrar</button>";
+        myTable+="<td> <button onclick='actualizarInfoMessage("+respuesta[i].idMessage+")'><i class='fas fa-sync'></i></button></td>";
+        myTable+="<td> <button onclick='borrarMessage("+respuesta[i].idMessage+")'><i class='fas fa-times-circle'></i></button></td>";
         myTable+="</tr>";
     }
     myTable+="</table>";
@@ -487,8 +487,8 @@ function pintarRespuestaReservacion(respuesta){
         myTable+="<td>"+respuesta[i].status+"</td>";
         myTable+="<td>"+respuesta[i].client.name+"</td>";
         myTable+="<td>"+respuesta[i].ortopedic.name+"</td>";
-        myTable+="<td> <button onclick='actualizarInfoReservacion("+respuesta[i].idReservation+")'>Actualizar</button>";
-        myTable+="<td> <button onclick='borrarReservacion("+respuesta[i].idReservation+")'>Borrar</button>";
+        myTable+="<td> <button onclick='actualizarInfoReservacion("+respuesta[i].idReservation+")'><i class='fas fa-sync'></i></button></td>";
+        myTable+="<td> <button onclick='borrarReservacion("+respuesta[i].idReservation+")'><i class='fas fa-times-circle'></i></button></td>";
         myTable+="</tr>";
     }
     myTable+="</table>";
