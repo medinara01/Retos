@@ -82,41 +82,52 @@
 			</article>
 			<article id="tab4">
 				<h1> Mensaje</h1>
-				<div id="resultado4"></div>
-				<button onclick="traerInformacionMensajes()" > Consultar Mensaje</button>
-				
-				<form>
+				<div>
 					<label for="message">Mensaje:</label>
 					<input type="text" id="messageText" placeholder="Mensaje" required>
+					<label>Selecciona el cliente: </label>
+					<select id="select-client"></select>
+					<label>Selecciona el ortopedico: </label>
+					<select id="select-ortopedic"></select>
+					<button onclick="guardarInfoMessage()">Guardar Mensaje</button>
+				</div>
+				<div id="resultado4"></div>
+					<script type="text/javascript">
+						window.onload = autoInicioMessage();
+					</script>
+    			<div>
 				
-				</form>
-				<button onclick="guardarInformacionMensajes()">Guardar Mensaje</button>
 			</article>
 			<article id="tab5">
 				<h1> Reservacion</h1>
-				<div id="resultado5"></div>
-				<button onclick="traerInformacionReservacion()" > Consultar Reservacion</button>
-				
-				<form>
+				<div>
 					<label for="startdate">Fecha de Salida:</label>
 					<input type="date" id="RstartDate" placeholder="Fecha de Salida" required>
 					<label for="devolutionDate">Fecha de devolución:</label>
 					<input type="date" id="RdevolutionDate" placeholder="Fecha de devolucion" required>
-
-				</form>
-				<button onclick="guardarInformacionReservacion()">Guardar Reservacion</button>
+					<label>Selecciona el cliente: </label>
+					<select id="select-client"></select>
+					<label>Selecciona el ortopedico: </label>
+					<select id="select-ortopedic"></select>
+					<button onclick="guardarInformacionReservacion()">Guardar Reservacion</button>
+				</div>
+				<div id="resultado5"></div>
+					<script type="text/javascript">
+						window.onload = autoInicioReservacion();
+					</script>
+    			<div>
 			</article>
 			<article id="tab6">
 				<h1> Score</h1>
 				<div id="resultado6"></div>
 				<button onclick="traerInformacionScore()" > Consultar Score</button>
 				
-				<form>
+				<div>
 					<label for="message">Mensaje:</label>
 					<input type="text" id="SMessageText" placeholder="Mensaje">
 					<label for="Stars">Calificación:</label>
 					<input type="number" id="SStars" placeholder="Estrellas">
-				</form>
+				</div>
 				<button onclick="guardarInformacionScore()">Guardar Score</button>
 			</article>
 		</div>

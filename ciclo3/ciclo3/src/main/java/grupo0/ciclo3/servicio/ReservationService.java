@@ -45,6 +45,12 @@ public class ReservationService {
                 if(reservation.getDevolutionDate()!=null){
                     e.get().setDevolutionDate(reservation.getDevolutionDate());
                 }
+                if(reservation.getClient()!=null){
+                e.get().setClient(reservation.getClient());
+                }
+                if(reservation.getOrtopedic()!=null){
+                e.get().setOrtopedic(reservation.getOrtopedic());
+                }
                 if(reservation.getStatus()!=null){
                     e.get().setStatus(reservation.getStatus());
                 }
