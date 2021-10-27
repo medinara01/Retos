@@ -39,9 +39,6 @@ public class ClientService {
         if(client.getIdClient()!=null){
             Optional<Client> e= clientRepository.getClient(client.getIdClient());
             if(!e.isEmpty()){
-                if(client.getEmail()!=null){
-                    e.get().setEmail(client.getEmail());
-                }
                 if(client.getName()!=null){
                     e.get().setName(client.getName());
                 }
