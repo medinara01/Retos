@@ -11,22 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class SecurityAdapter extends WebSecurityConfigurerAdapter {
-
-    // ...
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-    	// @formatter:off
-        http
-            .authorizeRequests(a -> a
-                .antMatchers("/", "/error", "/webjars/**").permitAll()
+        http.authorizeRequests(a -> a
+                .antMatchers("/", "/error", "/webjars/**",
+                        "/api/**").permitAll()
                 .anyRequest().authenticated()
-            )
-            .exceptionHandling(e -> e
+        ).exceptionHandling(e -> e
                 .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
-            )
-            .oauth2Login();
-        // @formatter:on
+        ).oauth2Login().defaultSuccessUrl("/", true);
+
+        http.cors().and().csrf().disable();
+
     }
 
 }
